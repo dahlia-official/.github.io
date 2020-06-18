@@ -1,90 +1,2528 @@
+{block:NotLoadItemsPage}
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<html lang="ja">
+<head>  
+<meta name="google-site-verification" content="Xn98LBgApChgN6kZW86YevXfbAhfZ81dgUKi42Wm1Ho" />
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="msapplication-tap-highlight" content="no">
+{CanonicalTag}
+
+<title>{PageTitle}</title>
+{FaviconTag}
+{JQueryTag}
+
+{block:Hidden}
+<meta name="color:DolceFooterColor" content="#eeeeee" label="フッターの背景色">
+<meta name="color:DolceTextColor" content="#333333" label="テキストカラー">
+<meta name="color:DolceLinkColor" content="#666666" label="リンクカラー">
+<meta name="color:DolceLinkColorHover" content="#EFAAC5" label="リンクカラー(マウスオーバー)">
+<meta name="color:DolceBuyBtnColor" content="#E53935" label="カートに入れるボタンカラー">
+<meta name="color:DolceIconColor" content="#ef9a9a" label="アイコン / ボタンカラー">
+<meta name="color:DolceSaleColor" content="#E53935" label="セール価格カラー">
+<meta name="color:DolceComingSoonColor" content="#00C7B6" label="販売期間設定カラー">
+<meta name="color:DolcePreOrderColor" content="#000000" label="予約販売カラー">
+<meta name="color:DolceH1H2Line" content="#999999" label="見出しタイトル ライン色">
+<meta name="color:DolceH1H2Text" content="#333333" label="見出しタイトル テキストカラー">
+<meta name="if:DolceThumDesc" content="1" label="1.【基本設定】商品アイテムに1行の「商品説明」を表示 ON/OFF">
+<meta name="if:DolceThumRoundCut" content="0" label="商品アイテムを丸く切り抜く ON/OFF">
+<meta name="if:DolceShowDeepLink" content="1" label="スマホ閲覧時の「この商品をアプリで見る」ボタン　ON/OFF">
+<meta name="if:DolceItemAreaNav" content="0" label="スマホ閲覧時の商品ページスライダーに矢印を表示 ON/OFF">
+<meta name="color:DolceItemAreaColor" content="#fafafa" label="PCサイトの商品ページスライダーの背景色">
+<meta name="if:DolceHomeTextPc" content="0" label="2.【メニュー】PCサイトのメニューにHOMEを表示 ON/OFF">
+<meta name="text:DolceHomeText" content="Home" label="Homeのリンクテキスト">
+<meta name="text:DolceAboutText" content="About" label="Aboutのリンクテキスト">
+<meta name="text:DolceBlogText" content="Blog" label="Blogのリンクテキスト（Blog Apps）">
+<meta name="text:DolceContactText" content="Contact" label="Contactのリンクテキスト">
+<meta name="text:DolceExtraLinkText" content="" label="外部リンク1のタイトル">
+<meta name="text:DolceExtraLinkUrl" content="" label="外部リンク1のURL">
+<meta name="text:DolceExtraLinkText2" content="" label="外部リンク2のタイトル">
+<meta name="text:DolceExtraLinkUrl2" content="" label="外部リンク2のURL">
+<meta name="text:DolceCatTitle" content="Category" label="Categoryのタイトル（カテゴリ管理Apps）">
+<meta name="text:DolceInfoTitle" content="Information" label="Informationのタイトル">
+<meta name="text:DolceNewArrivalText" content="New Arrival" label="トップページ商品一覧のタイトル">
+<meta name="text:DolceRelatedTitle" content="関連商品" label="関連商品のタイトル">
+<meta name="if:DolceMainCat" content="1" label="3.【カテゴリメニュー】表示 ON/OFF">
+<meta name="color:DolceMainCatBg" content="#ffffff" label="カテゴリメニュー 背景色">
+<meta name="color:DolceMainCatText" content="#333333" label="カテゴリメニュー テキストカラー">
+<meta name="if:DolceMainCatLineOnOff" content="0" label="カテゴリメニュー 境界線 ON/OFF">
+<meta name="color:DolceMainCatLine" content="#cccccc" label="カテゴリメニュー 境界線カラー">
+<meta name="color:DolceMainCatBgHover" content="#fafafa" label="カテゴリメニュー 背景色(マウスオーバー)">
+<meta name="color:DolceMainCatTextHover" content="#f48fb1" label="カテゴリメニュー テキストカラー(マウスオーバー)">
+<meta name="text:DolceMainCatWide" content="6" label="カテゴリメニュー 1行のメニュー数">
+<meta name="select:DolceLogoFace" content="Varela" title="Varela" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Vollkorn" title="Vollkorn" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Tangerine" title="Tangerine" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Damion" title="Damion" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Cinzel" title="Cinzel" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="UnifrakturMaguntia" title="Maguntia" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Lato" title="Lato" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Quicksand" title="Quicksand" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="BenchNine" title="BenchNine" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="select:DolceLogoFace" content="Tangerine" title="Tangerine" label="4.【ロゴ】テキストロゴのフォント">
+<meta name="text:DolceLogoSize" content="30px" label="テキストロゴのフォントサイズ(例:30px)">
+<meta name="color:DolceLogoColor" content="#333333" label="テキストロゴのカラー">
+<meta name="text:DolcePcLogoMargin" content="50px" label="PCサイトでのロゴ上下の余白(例:50px)">
+<meta name="image:DolceSlider1Image" content="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a84cd153b465/default1.jpg" label="5.【メインスライダー 】 画像1">
+<meta name="text:DolceSlider1Url" content="" label="メインスライダー リンク先1">
+<meta name="image:DolceSlider2Image" content="" label="メインスライダー 画像2">
+<meta name="text:DolceSlider2Url" content="" label="メインスライダー リンク先2">
+<meta name="image:DolceSlider3Image" content="" label="メインスライダー 画像3">
+<meta name="text:DolceSlider3Url" content="" label="メインスライダー リンク先3">
+<meta name="image:DolceSlider4Image" content="" label="メインスライダー 画像4">
+<meta name="text:DolceSlider4Url" content="" label="メインスライダー リンク先4">
+<meta name="if:DolceSliderSubImage" content="0" label="PCサイトのトップページ以外では次に指定する下層ページ用画像をメインスライダーに表示 ON/OFF">
+<meta name="image:DolceSliderSub1Image" content="" label="下層ページ用 画像">
+<meta name="select:DolceSliderPositionFrom" content="50% 50%" title="中央に配置" label="メインスライダー画像の切り抜き位置">
+<meta name="select:DolceSliderPositionFrom" content="0 0" title="左上を基点" label="メインスライダー画像の切り抜き位置">
+<meta name="select:DolceSliderPositionFrom" content="100% 0" title="右上を基点" label="メインスライダー画像の切り抜き位置">
+<meta name="select:DolceSliderPositionFrom" content="100% 100%" title="右下を基点" label="メインスライダー画像の切り抜き位置">
+<meta name="select:DolceSliderPositionFrom" content="0 100%" title="左下を基点" label="メインスライダー画像の切り抜き位置">
+<meta name="image:DolceBanner1Image" content="" label="6.【トップバナー】 画像">
+<meta name="if:DolceBanner1All" content="0" label="トップバナーを下層ページにも表示  ON/OFF">
+<meta name="text:DolceBanner1Url" content="" label="トップバナー リンク先">
+<meta name="image:DolceBanner2Image" content="" label="7.【フッターバナー】 画像">
+<meta name="if:DolceBanner2All" content="0" label="フッターバナーを下層ページにも表示  ON/OFF">
+<meta name="text:DolceBanner2Url" content="" label="フッターバナー リンク先">
+<meta name="if:DolceAttention" content="0" label="8.【重要なお知らせ】 ON/OFF">
+<meta name="if:DolceAttentionAll" content="1" label="重要なお知らせをトップページ以外にも表示 ON/OFF">
+<meta name="color:DolceAttentionTextColor" content="#FFFFFF" label="重要なお知らせのテキストカラー">
+<meta name="color:DolceAttentionBgColor" content="#222222" label="重要なお知らせの背景カラー">
+<meta name="text:DolceAttentionText" content="" label="重要なお知らせテキスト">
+<meta name="if:DolcePostage" content="0" label="9.【送料表示】 ON/OFF">
+<meta name="if:DolcePostageAll" content="0" label="送料をトップページ以外にも表示 ON/OFF">
+<meta name="color:DolcePostageColor" content="#D50000" label="送料表示のカラー">
+<meta name="text:DolcePostageText1" content="" label="条件テキスト">
+<meta name="text:DolcePostageText2" content="" label="送料テキスト">
+<meta name="text:DolcePostageText3" content="" label="補足テキスト">
+<meta name="if:DolceReadMe" content="0" label="10.【はじめにお読み下さいボタン（README）】 ON/OFF">
+<meta name="if:DolceReadMeAll" content="0" label="READMEをトップページ以外にも表示 ON/OFF">
+<meta name="color:DolceReadMeTextColor" content="#FFFFFF" label="README テキストカラー">
+<meta name="color:DolceReadMeBgColor" content="#D50000;" label="README 背景カラー">
+<meta name="text:DolceReadMeText" content="" label="README テキスト">
+<meta name="text:DolceReadMeUrl" content="" label="README リンク先（ブログ記事等）">
+<meta name="if:DolcePickup" content="0" label="11.【Pickup】 ON/OFF">
+<meta name="text:DolcePickupTitle" content="Pick Up" label="Pickupのタイトル">
+<meta name="image:DolcePickup1ImageUrl" content="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a84cfb14f672/default2.jpg" label="Pickup 1 画像">
+<meta name="text:DolcePickup1Text" content="" label="Pickup 1 テキスト">
+<meta name="text:DolcePickup1Link" content="" label="Pickup 1 リンク先">
+<meta name="image:DolcePickup2ImageUrl" content="" label="Pickup 2 画像">
+<meta name="text:DolcePickup2Text" content="" label="Pickup 2 テキスト">
+<meta name="text:DolcePickup2Link" content="" label="Pickup 2 リンク先">
+<meta name="image:DolcePickup3ImageUrl" content="" label="Pickup 3 画像">
+<meta name="text:DolcePickup3Text" content="" label="Pickup 3 テキスト">
+<meta name="text:DolcePickup3Link" content="" label="Pickup 3 リンク先">
+<meta name="image:DolcePickup4ImageUrl" content="" label="Pickup 4 画像">
+<meta name="text:DolcePickup4Text" content="" label="Pickup 4 テキスト">
+<meta name="text:DolcePickup4Link" content="" label="Pickup 4 リンク先">
+<meta name="image:DolcePickup5ImageUrl" content="" label="Pickup 5 画像">
+<meta name="text:DolcePickup5Text" content="" label="Pickup 5 テキスト">
+<meta name="text:DolcePickup5Link" content="" label="Pickup 5 リンク先">
+<meta name="image:DolcePickup6ImageUrl" content="" label="Pickup 6 画像">
+<meta name="text:DolcePickup6Text" content="" label="Pickup 6 テキスト">
+<meta name="text:DolcePickup6Link" content="" label="Pickup 6 リンク先">
+<meta name="if:DolceRanking" content="0" label="12.【ランキング】 ON/OFF">
+<meta name="text:DolceRankingTitle" content="Ranking" label="ランキングのタイトル">
+<meta name="if:DolceRankingIcon" content="0" label="王冠アイコン ON/OFF">
+<meta name="text:DolceRanking1Title" content="No.1" label="No.1のタイトル">
+<meta name="image:DolceRanking1ImageUrl" content="" label="No.1 画像">
+<meta name="text:DolceRanking1Text" content="" label="No.1 商品名">
+<meta name="text:DolceRanking1Price" content="" label="No.1 価格">
+<meta name="text:DolceRanking1Link" content="" label="No.1 リンク先">
+<meta name="text:DolceRanking2Title" content="No.2" label="No.2のタイトル">
+<meta name="image:DolceRanking2ImageUrl" content="" label="No.2 画像">
+<meta name="text:DolceRanking2Text" content="" label="No.2 商品名">
+<meta name="text:DolceRanking2Price" content="" label="No.2 価格">
+<meta name="text:DolceRanking2Link" content="" label="No.2 リンク先">
+<meta name="text:DolceRanking3Title" content="No.3" label="No.3のタイトル">
+<meta name="image:DolceRanking3ImageUrl" content="" label="No.3 画像">
+<meta name="text:DolceRanking3Text" content="" label="No.3 商品名">
+<meta name="text:DolceRanking3Price" content="" label="No.3 価格">
+<meta name="text:DolceRanking3Link" content="" label="No.3 リンク先">
+<meta name="if:DolceNews" content="0" label="13.【新着情報表示】 ON/OFF">
+<meta name="text:DolceNewsTitle" content="News" label="新着情報表示のタイトル">
+<meta name="text:DolceNewsDate1" content="" label="新着情報 1 日付">
+<meta name="text:DolceNewsText1" content="" label="新着情報 1 内容">
+<meta name="text:DolceNewsLink1" content="" label="新着情報 1 リンク先">
+<meta name="text:DolceNewsDate2" content="" label="新着情報 2 日付">
+<meta name="text:DolceNewsText2" content="" label="新着情報 2 内容">
+<meta name="text:DolceNewsLink2" content="" label="新着情報 2 リンク先">
+<meta name="text:DolceNewsDate3" content="" label="新着情報 3 日付">
+<meta name="text:DolceNewsText3" content="" label="新着情報 3 内容">
+<meta name="text:DolceNewsLink3" content="" label="新着情報 3 リンク先">
+<meta name="if:DolceAboutImage" content="0" label="14.【アバウトページ】アバウトページタイトル下に画像を表示 ON/OFF">
+<meta name="image:DolceAboutImageUrl" content="" label="アバウトページ画像">
+<meta name="text:DolceAboutCatch" content="" label="アバウトページ画像下の見出しテキスト">
+<meta name="text:DolceAboutShopSite" content="" label="アバウトページ　ショップ住所">
+<meta name="text:DolceAboutShopTel" content="" label="アバウトページ　ショップTEL">
+<meta name="text:DolceAboutShopFax" content="" label="アバウトページ　ショップFAX">
+<meta name="text:DolceAboutShopTime" content="" label="アバウトページ　ショップ営業時間">
+<meta name="text:DolceAboutShopClose" content="" label="アバウトページ　ショップ定休日">
+<meta name="text:DolceAboutShopMail" content="" label="アバウトページ　ショップE-Mail">
+<meta name="text:DolceCss" content="" label="15.独自スタイルシート(CSS)">
+{/block:Hidden}
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link rel="stylesheet" href="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645b548ff50/materialize.min.css" type="text/css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645b654bac4/flickity.min.css" type="text/css">
+<link rel="stylesheet" href="/css/shopTemplate/common.css?{UpdateTime}">
+<link rel="stylesheet" href="https://basefile.akamaized.net/dolcevivace-shopselect-net/5e99147f236c3/dolce.vita.min.css" type="text/css">
+<script type='text/javascript' src='https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645b865a556/flickity.pkgd.min.js'></script>
+
+{block:ItemPage}
+{MetaItemInfoTag}
+{/block:ItemPage}
+
+{block:NotItemPage}
+{MetaShopInfoTag}
+{/block:NotItemPage}
+    
+{block:IndexPage}
+{HeadLinkNextPrevTag}
+{/block:IndexPage}
+
+{BackgroundTag}
+    
+{block:AppsItemLabel}
+<link rel="stylesheet" type="text/css" href="/item_label/css/ShopTemplate/style.css?{UpdateTime}">
+<script type="text/javascript" src="/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
+{/block:AppsItemLabel}
+
+<style type="text/css">
+.dolce_logo_size .logoText,
+nav .logoText,
+#shopinfo .logoText{
+	{block:text-DolceLogoSize}
+	vertical-align:middle;
+    font-size:{text:DolceLogoSize} !important;
+	{/block:text-DolceLogoSize}
+	color:#333 !important;
+	color:{color:DolceLogoColor} !important;
+	font-family:'{select:DolceLogoFace}' , Vollkorn , -apple-system, BlinkMacSystemFont, "Helvetica Neue", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;}		
+footer.page-footer-noitem {
+	background-color: {color:DolceFooterColor};}
+a {
+	color:{color:DolceLinkColor};}	
+a:hover,
+a:focus {
+	color:{color:DolceLinkColorHover};}
+nav ul li a,
+.side-nav li a,
+#postageOpen{
+	color:{color:DolceLinkColor} !important;}
+nav ul li a:hover,
+nav ul li a.active,
+nav ul li a:hover,
+nav ul li a.current-menu-item{
+	color:{color:DolceLinkColorHover} !important;}
+body,
+#price-and-purchase .page-price,
+#shopBlog .blog_title h2 a,
+#shopBlog .blog_title h2 a:hover,
+.item .wish-title,
+.item .price,
+.news-text a,
+.news-text a:hover,
+.illegal-report a,
+.illegal-report a:hover,
+.vivace-postage,
+#ranking a,
+#ranking a:hover,
+#pickup a,
+#pickup a:hover{
+	color: {color:DolceTextColor} !important;}
+
+@media (max-width: 992px) {
+#header .side-nav li a,
+#header .side-nav li a:hover{
+	color:#333 !important;}}
+
+#privacy, #law, .illegal-report a, .illegal-report a:hover{
+	color:#333 !important;}
+
+.side-nav .side-nav-arrow a:before,
+.side-nav #appsItemCategoryTag a:before,
+#sidebar #appsItemCategoryTag a:before,
+#sidebar .webicon-about:before,
+#sidebar .webicon-blog:before,
+#sidebar .webicon-contact:before,
+#sidebar .webicon-privacy:before,
+#sidebar .webicon-law:before,
+#sidebar .webicon-link:before{
+	color:{color:DolceIconColor} !important;}
+#main-search .item-search-submit,
+#phone-search .item-search-submit,
+#more a {
+    background-color:{color:DolceIconColor};}
+#shopBlog .maincontainer h2{
+	border-left:{color:DolceIconColor} solid 4px;}
+#price-and-purchase .purchaseButton button,
+#price-and-purchase .purchaseButton a{
+	background:{color:DolceBuyBtnColor};}	
+{block:if-DolcePostage}
+.postage-price{
+	color: {color:DolcePostageColor};}
+{/block:if-DolcePostage}
+{block:if-DolceAttention}
+.attentionbox{
+	background-color:{color:DolceAttentionBgColor};
+	color:{color:DolceAttentionTextColor} !important;}
+{/block:if-DolceAttention}
+{block:if-DolceReadMe}
+.vivace-readme{
+	color:{color:DolceReadMeTextColor} !important;
+	background-color:{color:DolceReadMeBgColor};}
+.vivace-readme a,
+.vivace-readme a:hover{
+	color:{color:DolceReadMeTextColor} !important;}
+{/block:if-DolceReadMe}
+.main-left .flickity-slider {
+	transform:none !important;}
+.main-left .gallery-cell {
+	width:100%;
+	left:0 !important;
+	opacity:0;
+	transition:opacity 0.3s ease-in-out;
+	z-index:-1;}
+.main-left .gallery-cell.is-selected {
+	opacity:1;
+	z-index:0}
+{block:ItemPage}
+@media only screen and (max-width : 992px){.ofi-item {height: auto}}
+{/block:ItemPage}
+.hs1:before,
+#sidebar h1:before,
+.main-right h1:before,
+#shopContact .contact-header:before,
+#shopPrivacy .contact-header:before,
+#shopLaw .contact-header:before {
+	background: linear-gradient(-90deg, {color:DolceH1H2Line}, transparent);}
+#shopContact .contact-header:after,
+#shopPrivacy .contact-header:after,
+#shopLaw .contact-header:after,
+.hs2:after {
+	background: linear-gradient(90deg, {color:DolceH1H2Line}, transparent);}
+.hs1,
+.hs2,
+#sidebar h1,
+.main-right h1,
+#shopContact .contact-header,
+#shopPrivacy .contact-header,
+#shopLaw .contact-header,
+#sidebar h1,
+#sidebar h2{
+	color:{color:DolceH1H2Text};}
+.ofi {
+	object-fit: cover; 
+	object-position: {select:DolceSliderPositionFrom};
+	font-family: 'object-fit: cover; object-position: {select:DolceSliderPositionFrom}';}
+{block:ItemPage}
+@media only screen and (min-width : 993px){
+.maincontainer .main-left{
+	background-color:transparent;
+	{block:color-DolceItemAreaColor}
+	background:{color:DolceItemAreaColor};
+	{/block:color-DolceItemAreaColor}}}
+{block:not_if-DolceItemAreaNav}
+@media only screen and (max-width : 992px){
+.flickity-prev-next-button {display:none}}
+{/block:not_if-DolceItemAreaNav}
+{block:NoItemImage2}
+.flickity-prev-next-button {display:none}
+{/block:NoItemImage2}
+{/block:ItemPage}
+@media screen and (min-width : 993px) {
+nav .logo{
+	margin-top:{text:DolcePcLogoMargin};
+	margin-bottom:{text:DolcePcLogoMargin};}}
+{block:AppsItemCategory}
+{block:if-DolceMainCat}
+@media screen and (min-width : 993px) {	
+#main-cat .main-cat-wrap  {
+	background-color:{color:DolceMainCatBg};
+	color:{color:DolceMainCatText};}
+{block:color-DolceMainCatLine}
+#main-cat #appsItemCategoryTag li{
+	border-left:{color:DolceMainCatLine} solid 1px;  }
+#main-cat #appsItemCategoryTag li:last-child{
+	border-right:{color:DolceMainCatLine} solid 1px;}
+{/block:color-DolceMainCatLine}
+#main-cat #appsItemCategoryTag li a {
+	color:{color:DolceMainCatText};}
+#main-cat #appsItemCategoryTag li a:hover {
+	background-color:{color:DolceMainCatBgHover};
+	color:{color:DolceMainCatTextHover};}
+#main-cat #appsItemCategoryTag li ul li a {
+	background-color:{color:DolceMainCatBg};}
+#main-cat #appsItemCategoryTag li ul li,
+#main-cat #appsItemCategoryTag li ul li:last-child {
+	border-left: none !important;
+	border-right: none !important;}}	
+#main-cat #appsItemCategoryTag li,
+#main-cat .appsItemCategoryTag_lowerchild{
+	width: auto !important;
+	min-width:auto;
+	{block:text-DolceMainCatWide}
+	min-width: calc(100% / {text:DolceMainCatWide} - 1px);
+	{/block:text-DolceMainCatWide}}
+{block:not_if-DolceMainCatLineOnOff}
+@media screen and (min-width : 993px) {
+#main-cat #appsItemCategoryTag li,
+#main-cat #appsItemCategoryTag li:first-child{
+	border-left: none !important; 
+	border-right: none !important}}
+{/block:not_if-DolceMainCatLineOnOff}
+{/block:if-DolceMainCat}
+{/block:AppsItemCategory}
+{block:if-DolceThumRoundCut}	
+#products{
+	padding:0 20px}
+.top-thumb{
+	padding:10px 20px}
+.top-thumb img {
+	border-radius: 50%;
+	border-color: transparent}
+.wish-title{
+	padding:16px 0 2px}
+@media only screen and (max-width : 1200px){
+#products{
+	padding:0 5px}
+.top-thumb{
+	padding:0 10px 5px}
+.wish-title{
+	padding:12px 0 2px}}
+@media only screen and (max-width : 992px){
+#products{
+	padding:0 10px}
+.top-thumb{
+	padding:5px 10px}}
+@media only screen and (max-width : 600px){
+#products{
+	padding:0 5px}
+.top-thumb{
+	padding:5px 5px}
+.smallcatbox{
+	margin:0 15px 0}}
+{/block:if-DolceThumRoundCut}
+@media screen and (max-width: 600px) {
+.index-label .label_image{
+	height:56px !important;
+	width:56px !important;}
+.label_image {
+	top: -9px;
+	left: -21px;}}	
+@media screen and (min-width : 993px) {
+.label_image {
+	left: -2px;}}
+@media screen and (min-width : 1200px) {
+.label_image {
+	left: 3px;}}
+{block:if-DolceThumRoundCut}
+@media screen and (max-width: 600px) {
+.label_image {
+	top: -7px;
+	left: -19px;}}	
+@media screen and (min-width : 1200px) {
+.label_image {
+	top: -5px;
+	left: 4px;}}
+{/block:if-DolceThumRoundCut}
+{block:not_text-DolcePickup1Text}{block:not_text-DolcePickup2Text}{block:not_text-DolcePickup3Text}{block:not_text-DolcePickup4Text}{block:not_text-DolcePickup5Text}{block:not_text-DolcePickup6Text}
+#pickup .flickity-prev-next-button {
+	top:calc(50% - 10px)}
+@media only screen and (max-width : 992px){
+#pickup .flickity-prev-next-button {
+	top:50%}}
+@media (max-width: 600px) {
+#pickup{
+	padding:0 10px 10px}}
+{/block:not_text-DolcePickup6Text}{/block:not_text-DolcePickup5Text}{/block:not_text-DolcePickup4Text}{/block:not_text-DolcePickup3Text}{/block:not_text-DolcePickup2Text}{/block:not_text-DolcePickup1Text}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+@media only screen and (max-width : 992px){
+#shopTopPage #readme .vivace-readme{
+	margin-bottom:10px}}
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+@media screen and (min-width : 993px) {
+.vivace-readme{
+	margin:10px auto 0}}
+{block:not_if-DolceReadMeAll}
+{block:IndexPageCategory}
+#phone-search{padding-bottom:10px}
+{/block:IndexPageCategory}
+{block:IndexPageSearch}
+#phone-search{padding-bottom:10px}
+{/block:IndexPageSearch}
+{block:NotIndexPage}
+#phone-search{padding-bottom:10px}
+{/block:NotIndexPage}
+{/block:not_if-DolceReadMeAll}
+{block:not_image-DolcePickup2ImageUrl}
+#pickup .flickity-page-dots{
+	display:none}
+{/block:not_image-DolcePickup2ImageUrl}
+
+.item .dolce-comingsoon{
+	color:{color:DolceComingSoonColor};}
+
+#price-and-purchase .dolce-comingsoon{
+	color:{color:DolceComingSoonColor};}
+
+#price-and-purchase .page-attention .salesPeriod--term,
+#price-and-purchase .page-attention .salesPeriod--willStart,
+#price-and-purchase .page-attention .salesPeriod--finish{
+	color:{color:DolceComingSoonColor};}
+
+.item .dolce-preorder,
+.preOrder .preOrder__data{
+	color:{color:DolcePreOrderColor};}
+.preOrder .preOrder__label{
+	border: solid 1px {color:DolcePreOrderColor};
+	color:{color:DolcePreOrderColor};}
+
+@media screen and (min-width : 481px) {
+.msg_startButton{bottom:50px !important;right: 1% !important;}}
+
+.appsItemDetailCustomTag_heading{
+	color:{color:DolceTextColor} !important;}
+.appsItemDetailCustomTag_description{
+	font-size:inherit !important;
+	color:{color:DolceTextColor} !important;}
+.baseCarouselCaption{
+	visibility:visible !important;}
+	
+html {
+  visibility: hidden;}
+html.wf-active,
+html.loading-delay {
+    visibility: visible;}
+
+{block:text-DolceCss}
+{text:DolceCss}
+{/block:text-DolceCss}
+
+</style>
+
+<script type="text/javascript">
+  WebFontConfig = {
+   google: { families: [ 'Vollkorn::latin', 'Tangerine::latin', 'Damion::latin', 'Cinzel::latin', 'Lato::latin', 'Quicksand::latin', 'BenchNine::latin', 'UnifrakturMaguntia::latin' ] }
+  };
+  (function() {
+   var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+ })();
+</script>
+
 </head>
-<body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
-    </div>
-  </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
-      </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
-  </footer>
+
+<body id="{block:IndexPage}shopTopPage{/block:IndexPage}{block:ItemPage}shopDetailPage{/block:ItemPage}{block:AboutPage}shopAbout{/block:AboutPage}{block:ContactPage}shopContact{/block:ContactPage}{block:PrivacyPage}shopPrivacy{/block:PrivacyPage}{block:LawPage}shopLaw{/block:LawPage}{block:BlogPage}shopBlog{/block:BlogPage}">
+
+{block:IndexPage}
+<span id="max_page" style="display: none;">{MaxPageNumber}</span>
+<span id="next_page" style="display: none;">{NextPageNumber}</span>
+{/block:IndexPage}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div class="container mobile-and-tablet-only">
+<!-- スマホ/タブレットヘッダー -->
+<header>
+<div id="header">
+<nav><div class="nav-wrapper"><div class="header-container"><div class="clearfix">
+<a href="#" data-activates="mobile" class="button-collapse"><span class="css-bar"></span></a>
+<div class="brand-logo"><h1><a href="{IndexPageURL}">{LogoTag}</a></h1></div>  
+
+<ul class="side-nav collapsible collapsible-accordion" id="mobile">
+<li class="side-nav-arrow"><a href="{IndexPageURL}">{text:DolceHomeText}</a></li> 
+{block:AppsItemCategory}
+<li class="side-nav-arrow"><a href="javascript:void(0);">{text:DolceCatTitle}</a></li> 
+<li>
+{AppsItemCategoryCategoriesTag}
+</li>
+{/block:AppsItemCategory}
+<li class="side-nav-arrow"><a href="{AboutPageURL}">{text:DolceAboutText}</a></li>
+{block:AppsBlog}
+<li class="side-nav-arrow"><a href="{BlogPageURL}">{text:DolceBlogText}</a></li>
+{/block:AppsBlog}
+
+{block:AppsCoinFunding}
+<li class="side-nav-arrow"><a href="{CoinFundingPageURL}">Coin</a></li>
+{/block:AppsCoinFunding}
+
+<li class="side-nav-arrow"><a href="{ContactPageURL}">{text:DolceContactText}</a></li>
+{block:text-DolceExtraLinkText}
+<li class="side-nav-arrow"><a href="{text:DolceExtraLinkUrl}">{text:DolceExtraLinkText}</a></li>
+{/block:text-DolceExtraLinkText}
+{block:text-DolceExtraLinkText2}
+<li class="side-nav-arrow"><a href="{text:DolceExtraLinkUrl2}">{text:DolceExtraLinkText2}</a></li>
+{/block:text-DolceExtraLinkText2}
+<li class="side-nav-arrow"><a href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+<li class="side-nav-arrow"><a href="{LawPageURL}"><span style="font-size:1rem">{lang:Law}</span></a></li>
+<li class="base-icon">
+<div id="BASEtag-mobile">
+{BASEMenuTag}
+</div>
+</li>
+</ul>
+
+</div></div></div></nav>   
+</div>
+</header>
+<!-- スマホ/タブレットヘッダー -->
+</div>
+
+{block:NotShopPublic}
+<div class="maincontainer">
+<div class="logo hide-on-med-and-down"><div class="mart40 text-center"><span class="dolce_logo_size">{LogoTag}</span></div></div>
+<p class="text-center mart40 marb80">{lang:NotShopPublicMessage}</p>
+</div>
+{/block:NotShopPublic}
+
+{block:ShopPublic}
+<div class="maincontainer clearfix">
+
+<div class="main-left">
+
+<!-- 商品ページ以外 -->
+{block:NotItemPage}
+
+<!-- PCスライダー -->
+<div class="pc-only">
+<div class="main-gallery">
+
+<!-- トップページ -->
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+{block:image-DolceSlider1Image}<div class="gallery-cell">{block:text-DolceSlider1Url}<a href="{text:DolceSlider1Url}">{/block:text-DolceSlider1Url}<img src="{image:DolceSlider1Image}" alt="" class="ofi">{block:text-DolceSlider1Url}</a>{/block:text-DolceSlider1Url}</div>{/block:image-DolceSlider1Image} 
+{block:image-DolceSlider2Image}<div class="gallery-cell">{block:text-DolceSlider2Url}<a href="{text:DolceSlider2Url}">{/block:text-DolceSlider2Url}<img src="{image:DolceSlider2Image}" alt="" class="ofi">{block:text-DolceSlider2Url}</a>{/block:text-DolceSlider2Url}</div>{/block:image-DolceSlider2Image} 
+{block:image-DolceSlider3Image}<div class="gallery-cell">{block:text-DolceSlider3Url}<a href="{text:DolceSlider3Url}">{/block:text-DolceSlider3Url}<img src="{image:DolceSlider3Image}" alt="" class="ofi">{block:text-DolceSlider3Url}</a>{/block:text-DolceSlider3Url}</div>{/block:image-DolceSlider3Image} 
+{block:image-DolceSlider4Image}<div class="gallery-cell">{block:text-DolceSlider4Url}<a href="{text:DolceSlider4Url}">{/block:text-DolceSlider4Url}<img src="{image:DolceSlider4Image}" alt="" class="ofi">{block:text-DolceSlider4Url}</a>{/block:text-DolceSlider4Url}</div>{/block:image-DolceSlider4Image} 
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+<!-- トップページ -->
+
+<!-- トップページ以外 -->
+<!-- スライダーを表示する場合 -->
+{block:not_if-DolceSliderSubImage}
+
+<!-- スライダーを表示する場合:カテゴリページ -->
+{block:IndexPage}{block:IndexPageCategory}
+{block:image-DolceSlider1Image}<div class="gallery-cell">{block:text-DolceSlider1Url}<a href="{text:DolceSlider1Url}">{/block:text-DolceSlider1Url}<img src="{image:DolceSlider1Image}" alt="" class="ofi">{block:text-DolceSlider1Url}</a>{/block:text-DolceSlider1Url}</div>{/block:image-DolceSlider1Image} 
+{block:image-DolceSlider2Image}<div class="gallery-cell">{block:text-DolceSlider2Url}<a href="{text:DolceSlider2Url}">{/block:text-DolceSlider2Url}<img src="{image:DolceSlider2Image}" alt="" class="ofi">{block:text-DolceSlider2Url}</a>{/block:text-DolceSlider2Url}</div>{/block:image-DolceSlider2Image} 
+{block:image-DolceSlider3Image}<div class="gallery-cell">{block:text-DolceSlider3Url}<a href="{text:DolceSlider3Url}">{/block:text-DolceSlider3Url}<img src="{image:DolceSlider3Image}" alt="" class="ofi">{block:text-DolceSlider3Url}</a>{/block:text-DolceSlider3Url}</div>{/block:image-DolceSlider3Image} 
+{block:image-DolceSlider4Image}<div class="gallery-cell">{block:text-DolceSlider4Url}<a href="{text:DolceSlider4Url}">{/block:text-DolceSlider4Url}<img src="{image:DolceSlider4Image}" alt="" class="ofi">{block:text-DolceSlider4Url}</a>{/block:text-DolceSlider4Url}</div>{/block:image-DolceSlider4Image} 
+{/block:IndexPageCategory}{/block:IndexPage}
+<!-- スライダーを表示する場合:カテゴリページ -->
+
+<!-- スライダーを表示する場合:検索結果ページ -->
+{block:IndexPage}{block:IndexPageSearch}
+{block:image-DolceSlider1Image}<div class="gallery-cell">{block:text-DolceSlider1Url}<a href="{text:DolceSlider1Url}">{/block:text-DolceSlider1Url}<img src="{image:DolceSlider1Image}" alt="" class="ofi">{block:text-DolceSlider1Url}</a>{/block:text-DolceSlider1Url}</div>{/block:image-DolceSlider1Image} 
+{block:image-DolceSlider2Image}<div class="gallery-cell">{block:text-DolceSlider2Url}<a href="{text:DolceSlider2Url}">{/block:text-DolceSlider2Url}<img src="{image:DolceSlider2Image}" alt="" class="ofi">{block:text-DolceSlider2Url}</a>{/block:text-DolceSlider2Url}</div>{/block:image-DolceSlider2Image} 
+{block:image-DolceSlider3Image}<div class="gallery-cell">{block:text-DolceSlider3Url}<a href="{text:DolceSlider3Url}">{/block:text-DolceSlider3Url}<img src="{image:DolceSlider3Image}" alt="" class="ofi">{block:text-DolceSlider3Url}</a>{/block:text-DolceSlider3Url}</div>{/block:image-DolceSlider3Image} 
+{block:image-DolceSlider4Image}<div class="gallery-cell">{block:text-DolceSlider4Url}<a href="{text:DolceSlider4Url}">{/block:text-DolceSlider4Url}<img src="{image:DolceSlider4Image}" alt="" class="ofi">{block:text-DolceSlider4Url}</a>{/block:text-DolceSlider4Url}</div>{/block:image-DolceSlider4Image} 
+{/block:IndexPageSearch}{/block:IndexPage}
+<!-- スライダーを表示する場合:検索結果ページ -->
+
+<!-- スライダーを表示する場合:インデックスページ以外 -->
+{block:NotIndexPage}
+{block:image-DolceSlider1Image}<div class="gallery-cell">{block:text-DolceSlider1Url}<a href="{text:DolceSlider1Url}">{/block:text-DolceSlider1Url}<img src="{image:DolceSlider1Image}" alt="" class="ofi">{block:text-DolceSlider1Url}</a>{/block:text-DolceSlider1Url}</div>{/block:image-DolceSlider1Image} 
+{block:image-DolceSlider2Image}<div class="gallery-cell">{block:text-DolceSlider2Url}<a href="{text:DolceSlider2Url}">{/block:text-DolceSlider2Url}<img src="{image:DolceSlider2Image}" alt="" class="ofi">{block:text-DolceSlider2Url}</a>{/block:text-DolceSlider2Url}</div>{/block:image-DolceSlider2Image} 
+{block:image-DolceSlider3Image}<div class="gallery-cell">{block:text-DolceSlider3Url}<a href="{text:DolceSlider3Url}">{/block:text-DolceSlider3Url}<img src="{image:DolceSlider3Image}" alt="" class="ofi">{block:text-DolceSlider3Url}</a>{/block:text-DolceSlider3Url}</div>{/block:image-DolceSlider3Image} 
+{block:image-DolceSlider4Image}<div class="gallery-cell">{block:text-DolceSlider4Url}<a href="{text:DolceSlider4Url}">{/block:text-DolceSlider4Url}<img src="{image:DolceSlider4Image}" alt="" class="ofi">{block:text-DolceSlider4Url}</a>{/block:text-DolceSlider4Url}</div>{/block:image-DolceSlider4Image} 
+{/block:NotIndexPage}
+<!-- スライダーを表示する場合:インデックスページ以外 -->
+
+{/block:not_if-DolceSliderSubImage}
+<!-- スライダーを表示する場合 -->
+<!-- 固定画像を表示する場合 -->
+{block:if-DolceSliderSubImage}
+
+<!-- 固定画像を表示する場合:カテゴリページ -->
+{block:IndexPage}{block:IndexPageCategory}
+{block:image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSliderSub1Image}" alt="" class="ofi"></div>{/block:image-DolceSliderSub1Image}
+{block:not_image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSlider1Image}" alt="" class="ofi"></div>{/block:not_image-DolceSliderSub1Image}
+{/block:IndexPageCategory}{/block:IndexPage}
+<!-- 固定画像を表示する場合:カテゴリページ -->
+
+<!-- 固定画像を表示する場合:検索結果ページ -->
+{block:IndexPage}{block:IndexPageSearch}
+{block:image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSliderSub1Image}" alt="" class="ofi"></div>{/block:image-DolceSliderSub1Image}
+{block:not_image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSlider1Image}" alt="" class="ofi"></div>{/block:not_image-DolceSliderSub1Image}
+{/block:IndexPageSearch}{/block:IndexPage}
+<!-- 固定画像を表示する場合:検索結果ページ -->
+
+<!-- 固定画像を表示する場合:インデックスページ以外 -->
+{block:NotIndexPage}
+{block:image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSliderSub1Image}" alt="" class="ofi"></div>{/block:image-DolceSliderSub1Image}
+{block:not_image-DolceSliderSub1Image}<div class="gallery-cell"><img src="{image:DolceSlider1Image}" alt="" class="ofi"></div>{/block:not_image-DolceSliderSub1Image}
+{/block:NotIndexPage}
+<!-- 固定画像を表示する場合:インデックスページ以外 -->
+
+{/block:if-DolceSliderSubImage}
+<!-- 固定画像を表示する場合 -->
+<!-- トップページ以外 -->
+
+</div>
+</div>
+<!-- PCスライダー -->
+
+<!-- スマホ/タブレットスライダー -->
+<!-- トップページのみに表示 -->
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div class="mobile-and-tablet-only">
+<div class="main-gallery">
+{block:image-DolceSlider1Image}<div class="gallery-cell">{block:text-DolceSlider1Url}<a href="{text:DolceSlider1Url}">{/block:text-DolceSlider1Url}<img src="{image:DolceSlider1Image}" alt="">{block:text-DolceSlider1Url}</a>{/block:text-DolceSlider1Url}</div>{/block:image-DolceSlider1Image} 
+{block:image-DolceSlider2Image}<div class="gallery-cell">{block:text-DolceSlider2Url}<a href="{text:DolceSlider2Url}">{/block:text-DolceSlider2Url}<img src="{image:DolceSlider2Image}" alt="">{block:text-DolceSlider2Url}</a>{/block:text-DolceSlider2Url}</div>{/block:image-DolceSlider2Image} 
+{block:image-DolceSlider3Image}<div class="gallery-cell">{block:text-DolceSlider3Url}<a href="{text:DolceSlider3Url}">{/block:text-DolceSlider3Url}<img src="{image:DolceSlider3Image}" alt="">{block:text-DolceSlider3Url}</a>{/block:text-DolceSlider3Url}</div>{/block:image-DolceSlider3Image} 
+{block:image-DolceSlider4Image}<div class="gallery-cell">{block:text-DolceSlider4Url}<a href="{text:DolceSlider4Url}">{/block:text-DolceSlider4Url}<img src="{image:DolceSlider4Image}" alt="">{block:text-DolceSlider4Url}</a>{/block:text-DolceSlider4Url}</div>{/block:image-DolceSlider4Image} 
+</div>
+</div>
+{block:not_if-DolceAttention}
+<div style="min-height:10px;"></div>
+{/block:not_if-DolceAttention}
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+<!-- トップページのみに表示 -->
+<!-- スマホ/タブレットスライダー -->
+
+<script type="text/javascript">
+$('.main-gallery').flickity({
+	contain: true,
+    wrapAround: true,
+    imagesLoaded: true,
+    draggable: true,
+    prevNextButtons: false,
+    pageDots: false,
+    accessibility: false,
+    autoPlay: 10000,
+	pauseAutoPlayOnHover: false,
+	dragThreshold: 15
+});
+
+$(function () {
+  objectFitImages( 'img.ofi' );
+});
+</script>
+
+{/block:NotItemPage}
+<!-- 商品ページ以外 -->
+
+<!-- 商品ページ -->
+{block:ItemPage}
+<div class="mobile-and-tablet-only">
+
+<!-- 重要なお知らせ -->
+{block:if-DolceAttention}
+{block:if-DolceAttentionAll}
+<div class="attentionbox">
+{text:DolceAttentionText}
+</div>
+{/block:if-DolceAttentionAll}
+{/block:if-DolceAttention}
+<!-- 重要なお知らせ -->
+
+<!-- トップバナー -->
+{block:image-DolceBanner1Image}
+{block:if-DolceBanner1All}
+<div class="top-banner">{block:text-DolceBanner1Url}<a href="{text:DolceBanner1Url}">{/block:text-DolceBanner1Url}<img src="{image:DolceBanner1Image}" alt="">{block:text-DolceBanner1Url}</a>{/block:text-DolceBanner1Url}</div>
+{/block:if-DolceBanner1All}
+{/block:image-DolceBanner1Image}
+<!-- トップバナー -->
+
+<!-- 送料 -->
+{block:if-DolcePostage}
+{block:if-DolcePostageAll}
+<div class="text-center"><div class="vivace-postage">
+{text:DolcePostageText1}
+<div class="postage-price"><i class="fa fa-truck" aria-hidden="true"></i>
+{text:DolcePostageText2}</div>
+<div class="postage-desc">{text:DolcePostageText3}</div>
+</div></div>
+{/block:if-DolcePostageAll}
+{/block:if-DolcePostage}
+<!-- 送料 -->
+
+<!-- phone-search -->
+<div id="phone-search">
+<form role="search" method="get" action="{IndexPageURL}">
+<input class="item-search" type="text" name="q" id="s" placeholder="Search" value="">
+<button class="item-search-submit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+<!-- phone-search -->
+
+<!-- readme -->
+{block:if-DolceReadMe}
+{block:if-DolceReadMeAll}
+<div class="text-center">
+<a href="{text:DolceReadMeUrl}"><div class="vivace-readme">
+{text:DolceReadMeText}
+</div></a>
+</div>
+{/block:if-DolceReadMeAll}
+{/block:if-DolceReadMe}
+<!-- readme -->
+
+<h1 class="hs1 hs2" style="margin-top:10px !important;min-height:25px;">{ItemTitle}
+{block:AppsDownload}{block:ItemDigitalContent}<span class="text-s grey-text pd20">【 {ItemDigitalContent} 】</span>{/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+
+</div>
+
+<!-- 商品スライダー -->
+<div class="itempage-item__mainImage">
+{block:ItemImage1}<div class="gallery-cell cell1"><img src="{ItemImage1URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage1}
+{block:NoItemImage1}<div class="gallery-cell cell1"><img src="{ItemNoImageURL}" alt="" class="ofi-item"></div>{/block:NoItemImage1}
+{block:ItemImage2}<div class="gallery-cell cell2"><img src="{ItemImage2URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage2}
+{block:ItemImage3}<div class="gallery-cell cell3"><img src="{ItemImage3URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage3}
+{block:ItemImage4}<div class="gallery-cell cell4"><img src="{ItemImage4URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage4}
+{block:ItemImage5}<div class="gallery-cell cell5"><img src="{ItemImage5URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage5}
+{block:ItemImage6}<div class="gallery-cell cell6"><img src="{ItemImage6URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage6}
+{block:ItemImage7}<div class="gallery-cell cell7"><img src="{ItemImage7URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage7}
+{block:ItemImage8}<div class="gallery-cell cell8"><img src="{ItemImage8URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage8}
+{block:ItemImage9}<div class="gallery-cell cell9"><img src="{ItemImage9URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage9}
+{block:ItemImage10}<div class="gallery-cell cell10"><img src="{ItemImage10URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage10}
+{block:ItemImage11}<div class="gallery-cell cell11"><img src="{ItemImage11URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage11}
+{block:ItemImage12}<div class="gallery-cell cell12"><img src="{ItemImage12URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage12}
+{block:ItemImage13}<div class="gallery-cell cell13"><img src="{ItemImage13URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage13}
+{block:ItemImage14}<div class="gallery-cell cell14"><img src="{ItemImage14URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage14}
+{block:ItemImage15}<div class="gallery-cell cell15"><img src="{ItemImage15URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage15}
+{block:ItemImage16}<div class="gallery-cell cell16"><img src="{ItemImage16URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage16}
+{block:ItemImage17}<div class="gallery-cell cell17"><img src="{ItemImage17URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage17}
+{block:ItemImage18}<div class="gallery-cell cell18"><img src="{ItemImage18URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage18}
+{block:ItemImage19}<div class="gallery-cell cell19"><img src="{ItemImage19URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage19}
+{block:ItemImage20}<div class="gallery-cell cell20"><img src="{ItemImage20URL-origin}" alt="" class="ofi-item"></div>{/block:ItemImage20}
+</div>
+<!-- 商品スライダー -->
+
+{/block:ItemPage}
+<!-- 商品ページ -->
+</div>
+
+<div class="main-right">
+<div class="scatola"> 
+
+<!-- 全ページ共通部分 -->
+
+<!-- 重要なお知らせ -->
+{block:if-DolceAttention}
+<!-- トップページだけに表示する場合 -->
+{block:not_if-DolceAttentionAll}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div class="attentionbox">
+{text:DolceAttentionText}
+</div>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:not_if-DolceAttentionAll}
+<!-- トップページだけに表示する場合 -->
+<!-- トップページ以外にも表示する場合 -->
+{block:if-DolceAttentionAll}
+{block:NotItemPage}
+<div class="attentionbox">
+{text:DolceAttentionText}
+</div>
+{/block:NotItemPage}
+{block:ItemPage}
+<div class="pc-only">
+<div class="attentionbox">
+{text:DolceAttentionText}
+</div>
+</div>
+{/block:ItemPage}
+{/block:if-DolceAttentionAll}
+<!-- トップページ以外にも表示する場合 -->
+{/block:if-DolceAttention}
+<!-- 重要なお知らせ -->
+
+<!-- PCヘッダー -->
+<nav>
+ 
+<div class="clearfix">
+<ul class="hide-on-med-and-down dropmenu">
+{block:if-DolceHomeTextPc}
+<li><a href="{IndexPageURL}">{text:DolceHomeText}</a></li>
+{/block:if-DolceHomeTextPc}
+<li><a href="{AboutPageURL}">{text:DolceAboutText}</a></li>
+{block:AppsBlog}
+<li><a href="{BlogPageURL}">{text:DolceBlogText}</a></li>
+{/block:AppsBlog}
+
+{block:AppsCoinFunding}
+<li><a href="{CoinFundingPageURL}">Coin</a></li>
+{/block:AppsCoinFunding}
+
+<li><a href="{ContactPageURL}">{text:DolceContactText}</a></li>
+{block:text-DolceExtraLinkText}
+<li><a href="{text:DolceExtraLinkUrl}">{text:DolceExtraLinkText}</a></li>
+{/block:text-DolceExtraLinkText}
+{block:text-DolceExtraLinkText2}
+<li><a href="{text:DolceExtraLinkUrl2}">{text:DolceExtraLinkText2}</a></li>
+{/block:text-DolceExtraLinkText2}
+<li>
+{BASEMenuTag}
+</li>
+<li>
+<div id="main-search">
+<form role="search" method="get" action="{IndexPageURL}">
+<input class="item-search" type="text" name="q" id="s" placeholder="Search" value="">
+<button class="item-search-submit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="logo hide-on-med-and-down ">
+<a href="{IndexPageURL}">
+<span class="dolce_logo_size">
+{LogoTag}
+</span>
+</a>
+</div>
+
+</nav> 
+<!-- PCヘッダー -->
+
+
+<!-- メインメニュー -->
+{block:if-DolceMainCat}
+{block:AppsItemCategory}
+<section>
+<div id="main-cat">
+<div class="main-cat-wrap">
+{AppsItemCategoryCategoriesTag}
+<script type="text/javascript">
+$(function() {
+var nav = $('#main-cat #appsItemCategoryTag');
+var navTop = nav.offset().top;
+$('li', nav).hover(function(){
+$('ul',this).stop().slideDown('fast');
+},
+function(){
+$('ul',this).stop().slideUp('fast');
+});
+});
+</script>
+</div>
+</div>
+</section>
+{/block:AppsItemCategory}
+{/block:if-DolceMainCat}
+<!-- メインメニュー -->
+
+
+<!-- トップバナー -->
+{block:image-DolceBanner1Image}
+<!-- トップページだけに表示する場合 -->
+{block:not_if-DolceBanner1All}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div class="top-banner">{block:text-DolceBanner1Url}<a href="{text:DolceBanner1Url}">{/block:text-DolceBanner1Url}<img src="{image:DolceBanner1Image}" alt="">{block:text-DolceBanner1Url}</a>{/block:text-DolceBanner1Url}</div>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:not_if-DolceBanner1All}
+<!-- トップページだけに表示する場合 -->
+<!-- トップページ以外にも表示する場合 -->
+{block:if-DolceBanner1All}
+{block:NotItemPage}
+<div class="top-banner">{block:text-DolceBanner1Url}<a href="{text:DolceBanner1Url}">{/block:text-DolceBanner1Url}<img src="{image:DolceBanner1Image}" alt="">{block:text-DolceBanner1Url}</a>{/block:text-DolceBanner1Url}</div>
+{/block:NotItemPage}
+{block:ItemPage}
+<div class="pc-only">
+<div class="top-banner">{block:text-DolceBanner1Url}<a href="{text:DolceBanner1Url}">{/block:text-DolceBanner1Url}<img src="{image:DolceBanner1Image}" alt="">{block:text-DolceBanner1Url}</a>{/block:text-DolceBanner1Url}</div>
+</div>
+{/block:ItemPage}
+{/block:if-DolceBanner1All}
+<!-- トップページ以外にも表示する場合 -->
+{/block:image-DolceBanner1Image}
+<!-- トップバナー -->
+
+
+<!-- 送料 -->
+{block:if-DolcePostage}
+<!-- トップページだけに表示する場合 -->
+{block:not_if-DolcePostageAll}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div class="text-center"><div class="vivace-postage">
+{text:DolcePostageText1}
+<div class="postage-price"><i class="fa fa-truck" aria-hidden="true"></i>
+{text:DolcePostageText2}</div>
+<div class="postage-desc">{text:DolcePostageText3}</div>
+</div></div>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:not_if-DolcePostageAll}
+<!-- トップページだけに表示する場合 -->
+<!-- トップページ以外にも表示する場合 -->
+{block:if-DolcePostageAll}
+{block:NotItemPage}
+<div class="text-center"><div class="vivace-postage">
+{text:DolcePostageText1}
+<div class="postage-price"><i class="fa fa-truck" aria-hidden="true"></i>
+{text:DolcePostageText2}</div>
+<div class="postage-desc">{text:DolcePostageText3}</div>
+</div></div>
+{/block:NotItemPage}
+{block:ItemPage}
+<div class="pc-only">
+<div class="text-center"><div class="vivace-postage">
+{text:DolcePostageText1}
+<div class="postage-price"><i class="fa fa-truck" aria-hidden="true"></i>
+{text:DolcePostageText2}</div>
+<div class="postage-desc">{text:DolcePostageText3}</div>
+</div></div>
+</div>
+{/block:ItemPage}
+{/block:if-DolcePostageAll}
+<!-- トップページ以外にも表示する場合 -->
+{/block:if-DolcePostage}
+<!-- 送料 -->
+
+
+{block:NotItemPage}
+<div id="phone-search">
+<form role="search" method="get" action="{IndexPageURL}">
+<input class="item-search" type="text" name="q" id="s" placeholder="Search" value="">
+<button class="item-search-submit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+{/block:NotItemPage}
+
+
+<!-- readme -->
+{block:if-DolceReadMe}
+<!-- トップページだけに表示する場合 -->
+{block:not_if-DolceReadMeAll}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div id="readme" class="text-center">
+<a href="{text:DolceReadMeUrl}"><div class="vivace-readme">
+{text:DolceReadMeText}
+</div></a>
+</div>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:not_if-DolceReadMeAll}
+<!-- トップページだけに表示する場合 -->
+<!-- トップページ以外にも表示する場合 -->
+{block:if-DolceReadMeAll}
+{block:NotItemPage}
+<div id="readme" class="text-center">
+<a href="{text:DolceReadMeUrl}"><div class="vivace-readme">
+{text:DolceReadMeText}
+</div></a>
+</div>
+{/block:NotItemPage}
+{block:ItemPage}
+<div class="pc-only">
+<div id="readme" class="text-center">
+<a href="{text:DolceReadMeUrl}"><div class="vivace-readme">
+{text:DolceReadMeText}
+</div></a>
+</div>
+</div>
+{/block:ItemPage}
+{/block:if-DolceReadMeAll}
+<!-- トップページ以外にも表示する場合 -->
+{/block:if-DolceReadMe}
+<!-- readme -->
+
+
+<!-- ピックアップ -->
+{block:if-DolcePickup}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<section>
+<h1 class="hs2">{text:DolcePickupTitle}</h1>
+<div id="pickup">
+<div class="pickup-gallery">
+{block:image-DolcePickup1ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup1Link}"><img src="{image:DolcePickup1ImageUrl}" alt="">{block:text-DolcePickup1Text}<div class="pickup-caption">{text:DolcePickup1Text}</div>{/block:text-DolcePickup1Text}</a></div>
+{/block:image-DolcePickup1ImageUrl}
+{block:image-DolcePickup2ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup2Link}"><img src="{image:DolcePickup2ImageUrl}" alt="">{block:text-DolcePickup2Text}<div class="pickup-caption">{text:DolcePickup2Text}</div>{/block:text-DolcePickup2Text}</a></div>
+{/block:image-DolcePickup2ImageUrl}
+{block:image-DolcePickup3ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup3Link}"><img src="{image:DolcePickup3ImageUrl}" alt="">{block:text-DolcePickup3Text}<div class="pickup-caption">{text:DolcePickup3Text}</div>{/block:text-DolcePickup3Text}</a></div>
+{/block:image-DolcePickup3ImageUrl}
+{block:image-DolcePickup4ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup4Link}"><img src="{image:DolcePickup4ImageUrl}" alt="">{block:text-DolcePickup4Text}<div class="pickup-caption">{text:DolcePickup4Text}</div>{/block:text-DolcePickup4Text}</a></div>
+{/block:image-DolcePickup4ImageUrl}
+{block:image-DolcePickup5ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup5Link}"><img src="{image:DolcePickup5ImageUrl}" alt="">{block:text-DolcePickup5Text}<div class="pickup-caption">{text:DolcePickup5Text}</div>{/block:text-DolcePickup5Text}</a></div>
+{/block:image-DolcePickup5ImageUrl}
+{block:image-DolcePickup6ImageUrl}
+<div class="pickup-gallery-cell"><a href="{text:DolcePickup6Link}"><img src="{image:DolcePickup6ImageUrl}" alt="">{block:text-DolcePickup6Text}<div class="pickup-caption">{text:DolcePickup6Text}</div>{/block:text-DolcePickup6Text}</a></div>
+{/block:image-DolcePickup6ImageUrl}
+</div>
+</div>
+<script type="text/javascript">
+$('.pickup-gallery').flickity({
+	contain: true,
+    wrapAround: true,
+    imagesLoaded: true,
+    draggable: true,
+    prevNextButtons: true,
+    pageDots: true,
+    accessibility: false,
+    autoPlay: 14000,
+	pauseAutoPlayOnHover: false,
+	dragThreshold: 15
+});
+</script>
+</section>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:if-DolcePickup}
+<!-- ピックアップ -->
+
+
+<!-- ランキング -->
+{block:if-DolceRanking}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<section>
+<div id="ranking">
+<h1 class="hs2">{text:DolceRankingTitle}</h1>
+<div class="row">
+{block:image-DolceRanking1ImageUrl}
+<div class="col s4 m4">
+<div class="ranking-box">
+{block:if-DolceRankingIcon}
+<div class="ranking-icon"><img src="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a647fb395224/icon_1r_64.png" width="32" height="32" alt=""></div>
+<div class="ranking-num">{text:DolceRanking1Title}</div>
+{/block:if-DolceRankingIcon}
+{block:not_if-DolceRankingIcon}
+<div class="ranking-num text-m mart5">{text:DolceRanking1Title}</div>
+{/block:not_if-DolceRankingIcon}
+<a href="{text:DolceRanking1Link}">
+<div class="ranking-image"><img src="{image:DolceRanking1ImageUrl}" alt=""></div>
+<div class="ranking-title">{text:DolceRanking1Text}{block:text-DolceRanking1Price}<div>{text:DolceRanking1Price}</div>{/block:text-DolceRanking1Price}</div>
+</a>
+</div>
+</div>
+{/block:image-DolceRanking1ImageUrl}
+{block:image-DolceRanking2ImageUrl}
+<div class="col s4 m4">
+<div class="ranking-box">
+{block:if-DolceRankingIcon}
+<div class="ranking-icon"><img src="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a647fc13d6cb/icon_2y_64.png" width="32" height="32" alt=""></div>
+<div class="ranking-num">{text:DolceRanking2Title}</div>
+{/block:if-DolceRankingIcon}
+{block:not_if-DolceRankingIcon}
+<div class="ranking-num text-m mart5">{text:DolceRanking2Title}</div>
+{/block:not_if-DolceRankingIcon}
+<a href="{text:DolceRanking2Link}">
+<div class="ranking-image"><img src="{image:DolceRanking2ImageUrl}" alt=""></div>
+<div class="ranking-title">{text:DolceRanking2Text}{block:text-DolceRanking2Price}<div>{text:DolceRanking2Price}</div>{/block:text-DolceRanking2Price}</div>
+</a>
+</div>
+</div>
+{/block:image-DolceRanking2ImageUrl}
+{block:image-DolceRanking3ImageUrl}
+<div class="col s4 m4">
+<div class="ranking-box">
+{block:if-DolceRankingIcon}
+<div class="ranking-icon"><img src="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a647fcc65581/icon_3g_64.png" width="32" height="32" alt=""></div>
+<div class="ranking-num">{text:DolceRanking3Title}</div>
+{/block:if-DolceRankingIcon}
+{block:not_if-DolceRankingIcon}
+<div class="ranking-num text-m mart5">{text:DolceRanking3Title}</div>
+{/block:not_if-DolceRankingIcon}
+<a href="{text:DolceRanking3Link}">
+<div class="ranking-image"><img src="{image:DolceRanking3ImageUrl}" alt=""></div>
+<div class="ranking-title">{text:DolceRanking3Text}{block:text-DolceRanking3Price}<div>{text:DolceRanking3Price}</div>{/block:text-DolceRanking3Price}</div>
+</a>
+</div>
+</div>
+{/block:image-DolceRanking3ImageUrl}
+</div>
+</div>
+</section>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:if-DolceRanking}
+<!-- ランキング -->
+
+
+<!-- News  -->
+{block:if-DolceNews}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<section>
+<div id="news">
+<h1 class="hs2">{text:DolceNewsTitle}</h1>
+{block:text-DolceNewsText1}
+<div class="news-box">
+<div class="news-date">{text:DolceNewsDate1}</div>
+<div class="news-text">{block:text-DolceNewsLink1}<a href="{text:DolceNewsLink1}">{/block:text-DolceNewsLink1}{text:DolceNewsText1}{block:text-DolceNewsLink1}</a>{/block:text-DolceNewsLink1}</div>
+</div>
+{/block:text-DolceNewsText1}
+{block:text-DolceNewsText2}
+<div class="news-box">
+<div class="news-date">{text:DolceNewsDate2}</div>
+<div class="news-text">{block:text-DolceNewsLink2}<a href="{text:DolceNewsLink2}">{/block:text-DolceNewsLink2}{text:DolceNewsText2}{block:text-DolceNewsLink2}</a>{/block:text-DolceNewsLink2}</div>
+</div>
+{/block:text-DolceNewsText2}
+{block:text-DolceNewsText3}
+<div class="news-box">
+<div class="news-date">{text:DolceNewsDate3}</div>
+<div class="news-text">{block:text-DolceNewsLink3}<a href="{text:DolceNewsLink3}">{/block:text-DolceNewsLink3}{text:DolceNewsText3}{block:text-DolceNewsLink3}</a>{/block:text-DolceNewsLink3}</div>
+</div>
+{/block:text-DolceNewsText3}
+</div>
+</section>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:if-DolceNews}
+<!-- News  -->
+
+<!-- 全ページ共通部分 -->
+
+
+<!-- インデックスページ -->
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+
+<!-- List-Item  -->
+<section>
+<h1 class="hs2">{text:DolceNewArrivalText}</h1>
+
+{block:NoItems}
+<p class="text-center mart80 marb80">{lang:NoItemsMessage}</p>
+{/block:NoItems}
+
+{block:HasItems}
+<div class="row">
+<div id="products" class="flex-wrapper">
+
+{block:Items}
+<!-- item -->
+<div class="flex-cell-col2">
+<div class="item">
+{block:AppsItemLabel}
+<div class="index-label">
+{AppsItemLabelTag}
+</div>
+{/block:AppsItemLabel}
+<div class="row index-block">
+<div class="top-thumb">
+<a href="{ItemPageURL}">
+{block:ItemImage1}
+<img src="{ItemImage1URL-640}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:ItemImage1}
+{block:NoItemImage1}
+<img src="{ItemNoImageURL}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:NoItemImage1}
+<div class="index-title-box">
+<div class="wish-title">
+{ItemTitle}</div>
+
+{block:ItemNowOnSale}
+{block:if-DolceThumDesc}
+
+{block:ItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{block:HasItemStock}
+{block:ItemNowOnSale}
+<span class="dolce-preorder">[{lang:PreOrderItem}]</span>
+{/block:ItemNowOnSale}
+{/block:HasItemStock}
+<span class="dolce-preorder-detail">{ItemDetailNoBr}</span>
+</div>
+{/block:ItemPreOrder}
+
+{block:NotItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:NotItemPreOrder}
+
+{/block:if-DolceThumDesc}
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="desc text-s">
+<span class="dolce-comingsoon">COMING SOON</span>
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+{block:if-DolceThumDesc}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:if-DolceThumDesc}
+{/block:ItemEndOfSale}
+
+{block:HasItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:HasItemStock}
+
+{block:NoItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:NoItemStock}
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- item -->
+{/block:Items}
+
+</div>
+
+<div id="more" class="col s12 relative_on">
+<a href="{LoadItemsPageURL}{NextPageNumber}">More</a>
+<div id="loading" class="ajax-loader">
+<img src="https://basefile.s3.amazonaws.com/dolcevivace-shopselect-net/5896b08eae1ba/ajax-loader4.gif" width="24" height="24">
+</div>
+</div>
+    
+</div>
+
+{/block:HasItems}
+
+</section>
+<!-- List-Item  -->
+
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+<!-- インデックスページ -->
+
+
+
+<!-- カテゴリページ -->{block:IndexPage}{block:IndexPageCategory}
+<section>
+<h1 class="hs2">{IndexPageCategory}</h1>
+
+{block:HasAppsItemCategoryChildCategories}
+<div class="smallcatbox">
+{block:AppsItemCategoryChildCategories}
+<div class="smallcat">
+<a href="{AppsItemCategoryChildCategoryPageURL}"><i class="fa fa-angle-double-right"></i> {AppsItemCategoryChildCategoryName}</a>
+</div>
+{/block:AppsItemCategoryChildCategories}
+</div>
+{/block:HasAppsItemCategoryChildCategories}
+
+{block:HasItems}
+<div class="row">
+<div id="products" class="flex-wrapper">
+{block:Items}
+<!-- item -->
+<div class="flex-cell-col2">
+<div class="item">
+{block:AppsItemLabel}
+<div class="index-label">
+{AppsItemLabelTag}
+</div>
+{/block:AppsItemLabel}
+<div class="row index-block">
+<div class="top-thumb">
+<a href="{ItemPageURL}">
+{block:ItemImage1}
+<img src="{ItemImage1URL-640}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:ItemImage1}
+{block:NoItemImage1}
+<img src="{ItemNoImageURL}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:NoItemImage1}
+<div class="index-title-box">
+<div class="wish-title">
+{ItemTitle}</div>
+
+{block:ItemNowOnSale}
+{block:if-DolceThumDesc}
+
+{block:ItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{block:HasItemStock}
+{block:ItemNowOnSale}
+<span class="dolce-preorder">[{lang:PreOrderItem}]</span>
+{/block:ItemNowOnSale}
+{/block:HasItemStock}
+<span class="dolce-preorder-detail">{ItemDetailNoBr}</span>
+</div>
+{/block:ItemPreOrder}
+
+{block:NotItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:NotItemPreOrder}
+
+{/block:if-DolceThumDesc}
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="desc text-s">
+<span class="dolce-comingsoon">COMING SOON</span>
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+{block:if-DolceThumDesc}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:if-DolceThumDesc}
+{/block:ItemEndOfSale}
+
+{block:HasItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:HasItemStock}
+
+{block:NoItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:NoItemStock}
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- item -->
+{/block:Items}
+</div>
+
+<div id="more" class="col s12 relative_on">
+<a href="{LoadItemsPageURL}{NextPageNumber}">More</a>
+<div id="loading" class="ajax-loader">
+<img src="https://basefile.s3.amazonaws.com/dolcevivace-shopselect-net/5896b08eae1ba/ajax-loader4.gif" width="24" height="24">
+</div>
+</div>
+
+</div>
+{/block:HasItems}
+
+{block:NoItems}
+<p class="text-center mart80 marb80">{lang:NoItemsMessage}</p>
+{/block:NoItems}
+
+</section>
+<!-- カテゴリページ -->{/block:IndexPageCategory}{/block:IndexPage}
+
+
+<!-- 検索結果ページ -->{block:IndexPage}{block:IndexPageSearch}
+<section>
+<h1 class="hs2">{lang:ItemSearchResult}</h1>
+
+{block:HasItems}
+<div class="row">
+<div id="products" class="flex-wrapper">
+{block:Items}
+<!-- item -->
+<div class="flex-cell-col2">
+<div class="item">
+{block:AppsItemLabel}
+<div class="index-label">
+{AppsItemLabelTag}
+</div>
+{/block:AppsItemLabel}
+<div class="row index-block">
+<div class="top-thumb">
+<a href="{ItemPageURL}">
+{block:ItemImage1}
+<img src="{ItemImage1URL-640}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:ItemImage1}
+{block:NoItemImage1}
+<img src="{ItemNoImageURL}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:NoItemImage1}
+<div class="index-title-box">
+<div class="wish-title">
+{ItemTitle}</div>
+
+{block:ItemNowOnSale}
+{block:if-DolceThumDesc}
+
+{block:ItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{block:HasItemStock}
+{block:ItemNowOnSale}
+<span class="dolce-preorder">[{lang:PreOrderItem}]</span>
+{/block:ItemNowOnSale}
+{/block:HasItemStock}
+<span class="dolce-preorder-detail">{ItemDetailNoBr}</span>
+</div>
+{/block:ItemPreOrder}
+
+{block:NotItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:NotItemPreOrder}
+
+{/block:if-DolceThumDesc}
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="desc text-s">
+<span class="dolce-comingsoon">COMING SOON</span>
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+{block:if-DolceThumDesc}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:if-DolceThumDesc}
+{/block:ItemEndOfSale}
+
+{block:HasItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:HasItemStock}
+
+{block:NoItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:NoItemStock}
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- item -->
+{/block:Items}
+</div>
+
+<div id="more" class="col s12 relative_on">
+<a href="{LoadItemsPageURL}{NextPageNumber}">More</a>
+<div id="loading" class="ajax-loader">
+<img src="https://basefile.s3.amazonaws.com/dolcevivace-shopselect-net/5896b08eae1ba/ajax-loader4.gif" width="24" height="24">
+</div>
+</div>
+
+</div>
+{/block:HasItems}
+
+{block:NoItems}
+<p class="text-center mart80 marb80">{lang:NoItemsMessage}</p>
+{/block:NoItems}
+
+</section>
+<!-- 検索結果ページ -->{/block:IndexPageSearch}{/block:IndexPage}
+
+
+<!-- 商品ページ -->{block:ItemPage}
+
+<h1 class="hs2 pc-only">{ItemTitle}
+{block:AppsDownload}{block:ItemDigitalContent}<span class="text-s grey-text pd20">【 {ItemDigitalContent} 】</span>{/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+
+<!-- Product --><div id="product" class="wish-area2">
+
+{block:ItemImage2}
+<!-- Image --><div class="itempage-item clearfix">
+
+<ul class="preview button-group">
+
+{block:ItemImage1}
+<li class="preview__content">
+<div><img src="{ItemImage1URL-300}" alt="" title="" class="button" data-selector=".cell1"></div>
+</li>
+{/block:ItemImage1}
+
+{block:ItemImage2}
+<li class="preview__content">
+<div><img src="{ItemImage2URL-300}" alt="" title="" class="button" data-selector=".cell2"></div>
+</li>
+{/block:ItemImage2}
+
+{block:ItemImage3}
+<li class="preview__content">
+<div><img src="{ItemImage3URL-300}" alt="" title="" class="button" data-selector=".cell3"></div>
+</li>
+{/block:ItemImage3}
+
+{block:ItemImage4}
+<li class="preview__content">
+<div><img src="{ItemImage4URL-300}" alt="" title="" class="button" data-selector=".cell4"></div>
+</li>
+{/block:ItemImage4}
+
+{block:ItemImage5}
+<li class="preview__content">
+<div><img src="{ItemImage5URL-300}" alt="" title="" class="button" data-selector=".cell5"></div>
+</li>
+{/block:ItemImage5}
+
+{block:ItemImage6}
+<li class="preview__content">
+<div><img src="{ItemImage6URL-300}" alt="" title="" class="button" data-selector=".cell6"></div>
+</li>
+{/block:ItemImage6}
+
+{block:ItemImage7}
+<li class="preview__content">
+<div><img src="{ItemImage7URL-300}" alt="" title="" class="button" data-selector=".cell7"></div>
+</li>
+{/block:ItemImage7}
+
+{block:ItemImage8}
+<li class="preview__content">
+<div><img src="{ItemImage8URL-300}" alt="" title="" class="button" data-selector=".cell8"></div>
+</li>
+{/block:ItemImage8}
+
+{block:ItemImage9}
+<li class="preview__content">
+<div><img src="{ItemImage9URL-300}" alt="" title="" class="button" data-selector=".cell9"></div>
+</li>
+{/block:ItemImage9}
+
+{block:ItemImage10}
+<li class="preview__content">
+<div><img src="{ItemImage10URL-300}" alt="" title="" class="button" data-selector=".cell10"></div>
+</li>
+{/block:ItemImage10}
+
+{block:ItemImage11}
+<li class="preview__content">
+<div><img src="{ItemImage11URL-300}" alt="" title="" class="button" data-selector=".cell11"></div>
+</li>
+{/block:ItemImage11}
+
+{block:ItemImage12}
+<li class="preview__content">
+<div><img src="{ItemImage12URL-300}" alt="" title="" class="button" data-selector=".cell12"></div>
+</li>
+{/block:ItemImage12}
+
+{block:ItemImage13}
+<li class="preview__content">
+<div><img src="{ItemImage13URL-300}" alt="" title="" class="button" data-selector=".cell13"></div>
+</li>
+{/block:ItemImage13}
+
+{block:ItemImage14}
+<li class="preview__content">
+<div><img src="{ItemImage14URL-300}" alt="" title="" class="button" data-selector=".cell14"></div>
+</li>
+{/block:ItemImage14}
+
+{block:ItemImage15}
+<li class="preview__content">
+<div><img src="{ItemImage15URL-300}" alt="" title="" class="button" data-selector=".cell15"></div>
+</li>
+{/block:ItemImage15}
+
+{block:ItemImage16}
+<li class="preview__content">
+<div><img src="{ItemImage16URL-300}" alt="" title="" class="button" data-selector=".cell16"></div>
+</li>
+{/block:ItemImage16}
+
+{block:ItemImage17}
+<li class="preview__content">
+<div><img src="{ItemImage17URL-300}" alt="" title="" class="button" data-selector=".cell17"></div>
+</li>
+{/block:ItemImage17}
+
+{block:ItemImage18}
+<li class="preview__content">
+<div><img src="{ItemImage18URL-300}" alt="" title="" class="button" data-selector=".cell18"></div>
+</li>
+{/block:ItemImage18}
+
+{block:ItemImage19}
+<li class="preview__content">
+<div><img src="{ItemImage19URL-300}" alt="" title="" class="button" data-selector=".cell19"></div>
+</li>
+{/block:ItemImage19}
+
+{block:ItemImage20}
+<li class="preview__content">
+<div><img src="{ItemImage20URL-300}" alt="" title="" class="button" data-selector=".cell20"></div>
+</li>
+{/block:ItemImage20}
+
+</ul>
+
+<!-- Image --></div>
+{/block:ItemImage2}
+
+<script type="text/javascript">
+
+$('.itempage-item__mainImage').flickity({
+	contain: true,
+    wrapAround: true,
+    imagesLoaded: true,
+    draggable: true,
+    prevNextButtons: true,
+    pageDots:  false,
+    accessibility: false,
+    autoPlay: false,
+	dragThreshold: 15
+});
+
+var flkty = new Flickity('.itempage-item__mainImage');
+var buttonGroup = document.querySelector('.button-group');
+buttonGroup.addEventListener( 'click', function( event ) {
+  // filter for button clicks
+  if ( !matchesSelector( event.target, '.button' ) ) {
+    return;
+  }
+  var selector = event.target.getAttribute('data-selector');
+  flkty.selectCell( selector );
+});
+
+
+$(function () {
+  objectFitImages( 'img.ofi-item' );
+});
+
+</script>
+
+<div id="price-and-purchase">
+
+<div class="page-itemtitle">
+{ItemTitle}</div>
+
+{block:HasItemStock}
+
+{block:ItemWatingForSale}
+<div class="dolce-comingsoon">
+COMING SOON
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemNowOnSale}
+<div class="page-price">
+{block:NoItemProperPrice}
+<span style="vertical-align:middle;">{ItemPrice}</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<div class="page-proper-price">{ItemProperPrice}</div>
+<span class="page-sale-rate">{ItemDiscountRate}</span>
+<span class="page-sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="page-price">
+{block:NoItemProperPrice}
+<span style="vertical-align:middle;">{ItemPrice}</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<div class="page-proper-price">{ItemProperPrice}</div>
+<span class="page-sale-rate">{ItemDiscountRate}</span>
+<span class="page-sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="page-price">
+<span style="vertical-align:middle; color:#ccc; text-decoration:line-through;">{ItemPrice}</span>
+<span class="page-soldout"><span style="vertical-align:middle;">SOLD OUT</span></span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:HasItemStock}
+
+{block:NoItemStock}
+
+{block:ItemNowOnSale}
+<div class="page-price">
+<span style="vertical-align:middle; color:#ccc; text-decoration:line-through;">{ItemPrice}</span>
+<span class="page-soldout"><span style="vertical-align:middle;">SOLD OUT</span></span>
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="dolce-comingsoon">
+COMING SOON
+</div>
+<div class="page-price">
+{block:NoItemProperPrice}
+<span style="vertical-align:middle;">{ItemPrice}</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<div class="page-proper-price">{ItemProperPrice}</div>
+<span class="page-sale-rate">{ItemDiscountRate}</span>
+<span class="page-sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="page-price">
+<span style="vertical-align:middle; color:#ccc; text-decoration:line-through;">{ItemPrice}</span>
+<span class="page-soldout"><span style="vertical-align:middle;">SOLD OUT</span></span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:NoItemStock}
+
+<div class="marb20">{ItemDetail}</div>
+{block:AppsItemDetailCustom}
+{AdditionalItemDetail}
+{AdditionalItemDetailDefaultCssAndJs}
+{/block:AppsItemDetailCustom}
+
+{block:PurchaseForm}
+{ItemSelectTag}
+{PurchaseButton}
+{/block:PurchaseForm}
+
+<div class="page-attention">
+{ItemAttentionTag}
+</div>
+
+{block:if-DolceShowDeepLink}
+<div id="app" class="mobile-only">
+<a href="{ItemDeepLink}">この商品をアプリで見る</a>
+</div>
+{/block:if-DolceShowDeepLink}
+
+<!-- レビュー機能 -->
+{block:AppsReview}
+<div id="review-apps">
+{AppsReviewTag}
+</div>
+{/block:AppsReview}
+<!-- レビュー機能 -->
+
+<div class="social clearfix">
+<div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}">{lang:Tweet}</a></div>
+<div class="facebook"><div class="fb-like" data-href="{ShopURL}/items/{ItemId}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false"></div></div>
+</div> 
+
+<div class="illegal-report">{IllegalReportTag}</div>
+
+</div>
+
+<!-- 関連商品 -->
+<div id="doloce-related">
+<h1 class="hs2">{text:DolceRelatedTitle}</h1>
+<div class="related-flex-wrapper">
+{block:RelatedItems}
+<div class="related-flex-col3">
+<a href="{RelatedItemPageURL}">
+<img src="{RelatedItemImageURL-640}" alt="{RelatedItemTitle}" title="{RelatedItemTitle}">
+<div class="text-center">
+<div class="wish-title">
+{RelatedItemTitle}</div>
+<div class="price">
+{RelatedItemPrice}
+</div>
+</div>
+</a>
+</div>
+{/block:RelatedItems}
+</div>
+</div>
+<!-- 関連商品 -->
+
+<!-- Product --></div>
+<!-- 商品ページ -->{/block:ItemPage}
+
+
+<!-- アバウトページ -->{block:AboutPage}
+<section>
+<h1 class="hs2">{text:DolceAboutText}</h1>
+
+<div id="paradis-about" class="area">
+
+{block:if-DolceAboutImage}
+<div class="marb30 text-center"><div class="photo"><img src="{image:DolceAboutImageUrl}" alt=""></div></div>
+{/block:if-DolceAboutImage}
+
+{block:text-DolceAboutCatch}
+<h2>
+{text:DolceAboutCatch}
+</h2>
+{/block:text-DolceAboutCatch}
+<div class="marr10 marl10">
+{ShopIntroduction}
+</div>
+<div class="aboutus">
+<div class="aboutustitle"><strong>{ShopName}</strong></div>
+{block:text-DolceAboutShopSite}
+<div class="marb10 mart10">
+<div class="td1">住所</div>
+<div class="td2">{text:DolceAboutShopSite}</div>
+</div>
+{/block:text-DolceAboutShopSite}
+{block:text-DolceAboutShopTel}
+<div class="marb10">
+<div class="td1">TEL</div>
+<div class="td2">{text:DolceAboutShopTel}</div>
+</div>
+{/block:text-DolceAboutShopTel}
+{block:text-DolceAboutShopFax}
+<div class="marb10">
+<div class="td1">FAX</div>
+<div class="td2">{text:DolceAboutShopFax}</div>
+</div>
+{/block:text-DolceAboutShopFax}
+{block:text-DolceAboutShopTime}
+<div class="marb10">
+<div class="td1">営業時間</div>
+<div class="td2">{text:DolceAboutShopTime}</div>
+</div>
+{/block:text-DolceAboutShopTime}
+{block:text-DolceAboutShopClose}
+<div class="marb10">
+<div class="td1">定休日</div>
+<div class="td2">{text:DolceAboutShopClose}</div>
+</div>
+{/block:text-DolceAboutShopClose}
+{block:text-DolceAboutShopMail}
+<div class="marb10">
+<div class="td1">E-mail</div>
+<div class="td2">{text:DolceAboutShopMail}</div>
+</div>
+{/block:text-DolceAboutShopMail}
+
+{block:text-DolceExtraLinkText}
+<div class="marb10">
+<div class="td1">Link</div>
+<div class="td2"><a href="{text:DolceExtraLinkUrl}">{text:DolceExtraLinkText}</a></div>
+</div>
+{/block:text-DolceExtraLinkText}
+
+{block:text-DolceExtraLinkText2}
+<div class="marb10">
+<div class="td1">Link</div>
+<div class="td2"><a href="{text:DolceExtraLinkUrl2}">{text:DolceExtraLinkText2}</a></div>
+</div>
+{/block:text-DolceExtraLinkText2}
+
+<div class="mart15">
+<ul class="side-social clearfix">
+{block:ShopFacebookId}
+<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="17" width="17"></a></li>
+{/block:ShopFacebookId}
+{block:ShopTwitterId}
+<li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="17" width="17"></a></li>
+{/block:ShopTwitterId}
+{block:ShopInstagramId}
+<li><a href="http://instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="17" width="17"></a></li>
+{/block:ShopInstagramId}
+{block:ShopAmebaId}
+<li><a href="http://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="17" width="17"></a></li>
+{/block:ShopAmebaId}
+{block:ShopLineId}
+<li><a href="https://line.me/R/ti/p/&commat;{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png" height="17" width="17"></a></li>
+{/block:ShopLineId}
+</ul>
+</div>
+
+</div></div>
+
+</section>
+<!-- アバウトページ -->{/block:AboutPage}
+
+
+<!-- お問い合わせページ -->{block:ContactPage}
+<section>
+<div class="contact-header">{text:DolceContactText}</div>
+<div id="paradis-contact" class="area">
+{ContactContentsTag}
+</div>
+</section>
+<!-- お問い合わせページ -->{/block:ContactPage}
+
+
+<!-- プライバシーページ -->{block:PrivacyPage}
+<section>
+<div class="contact-header">{lang:Privacy}</div>
+<div id="paradis-privacy" class="area">
+{PrivacyContentsTag}
+</div>
+</section>
+<!-- プライバシーページ -->{/block:PrivacyPage}
+
+
+<!-- 特定商取引法ページ -->{block:LawPage}
+<section>
+<div class="contact-header">{lang:Law}</div>
+<div id="paradis-law" class="area">
+{LawContentsTag}
+</div>
+</section>
+<!-- 特定商取引法ページ -->{/block:LawPage}
+
+<!-- ブログページ -->{block:BlogPage}
+<section>
+<h1 class="hs2">{text:DolceBlogText}</h1>
+<div id="paradis-blog" class="area">
+{BlogContentsTag}
+</div>
+</section>
+<!-- ブログページ -->{/block:BlogPage}
+
+
+<!-- スマホ用フッターメニュー -->
+<div id="sidebar" class="menu-phone">
+<section>
+<h1 class="hs2">{text:DolceCatTitle}</h1>
+<div class="area">
+{AppsItemCategoryCategoriesTag}
+</div>
+</section>
+<section>
+<h1 class="hs2">{text:DolceInfoTitle}</h1>
+<div class=" area">
+<ul>
+<li class="webicon-about"><span class="webicon-pd font_reset"><a href="{AboutPageURL}">{text:DolceAboutText}</a></span></li>
+{block:AppsBlog}
+<li class="webicon-blog"><span class="webicon-pd font_reset"><a href="{BlogPageURL}">{text:DolceBlogText}</a></span></li>
+{/block:AppsBlog}
+<li class="webicon-contact"><span class="webicon-pd font_reset"><a href="{ContactPageURL}">{text:DolceContactText}</a></span></li>
+<li class="webicon-privacy"><span class="webicon-pd font_reset"><a href="{PrivacyPageURL}">{lang:Privacy}</a></span></li> 
+<li class="webicon-law"><span class="webicon-pd font_reset"><a href="{LawPageURL}">{lang:Law}</a></span></li>
+{block:text-DolceExtraLinkText}
+<li class="webicon-link"><span class="webicon-pd font_reset"><a href="{text:DolceExtraLinkUrl}">{text:DolceExtraLinkText}</a></span></li>
+{/block:text-DolceExtraLinkText}
+{block:text-DolceExtraLinkText2}
+<li class="webicon-link"><span class="webicon-pd font_reset"><a href="{text:DolceExtraLinkUrl2}">{text:DolceExtraLinkText2}</a></span></li>
+{/block:text-DolceExtraLinkText2}
+</ul>
+</div>
+</section>
+</div>
+<!-- スマホ用フッターメニュー -->
+
+
+<!-- ショップ情報 -->
+<div id="shopinfo">
+<hr class="hr-gradation">
+
+<!-- フッターバナー -->
+{block:image-DolceBanner2Image}
+<!-- トップページだけに表示する場合 -->
+{block:not_if-DolceBanner2All}
+{block:IndexPage}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+<div class="footer-banner">{block:text-DolceBanner2Url}<a href="{text:DolceBanner2Url}">{/block:text-DolceBanner2Url}<img src="{image:DolceBanner2Image}" alt="">{block:text-DolceBanner2Url}</a>{/block:text-DolceBanner2Url}</div>
+{/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:IndexPage}
+{/block:not_if-DolceBanner2All}
+<!-- トップページだけに表示する場合 -->
+<!-- トップページ以外にも表示する場合 -->
+{block:if-DolceBanner2All}
+<div class="footer-banner">{block:text-DolceBanner2Url}<a href="{text:DolceBanner2Url}">{/block:text-DolceBanner2Url}<img src="{image:DolceBanner2Image}" alt="">{block:text-DolceBanner2Url}</a>{/block:text-DolceBanner2Url}</div>
+{/block:if-DolceBanner2All}
+<!-- トップページ以外にも表示する場合 -->
+{/block:image-DolceBanner2Image}
+<!-- フッターバナー -->
+
+<div class="brand-logo-bottom">
+<a href="{IndexPageURL}"><span class="dolce_logo_color">{LogoTag}</span></a>
+</div>
+{block:text-DolceAboutShopSite}
+<div class="shopinfo-text">
+{text:DolceAboutShopSite}
+</div>
+{/block:text-DolceAboutShopSite}
+{block:text-DolceAboutShopTel}
+<div class="shopinfo-text">
+TEL： {text:DolceAboutShopTel}
+</div>
+{/block:text-DolceAboutShopTel}
+{block:text-DolceAboutShopFax}
+<div class="shopinfo-text">
+FAX： {text:DolceAboutShopFax}
+</div>
+{/block:text-DolceAboutShopFax}
+{block:text-DolceAboutShopMail}
+<div class="shopinfo-text">
+E-mail：{text:DolceAboutShopMail}
+</div>
+{/block:text-DolceAboutShopMail}
+<div class="mart15">
+<ul class="side-social clearfix">
+{block:ShopFacebookId}
+<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="17" width="17"></a></li>
+{/block:ShopFacebookId}
+{block:ShopTwitterId}
+<li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="17" width="17"></a></li>
+{/block:ShopTwitterId}
+{block:ShopInstagramId}
+<li><a href="http://instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="17" width="17"></a></li>
+{/block:ShopInstagramId}
+{block:ShopAmebaId}
+<li><a href="http://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="17" width="17"></a></li>
+{/block:ShopAmebaId}
+{block:ShopLineId}
+<li><a href="https://line.me/R/ti/p/&commat;{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png" height="17" width="17"></a></li>
+{/block:ShopLineId}
+</ul>
+</div>
+</div>
+<!-- ショップ情報 -->
+
+</div>
+
+<!-- フッター -->
+<footer class="page-footer-noitem">
+<section>  
+<div class="footer-copyright"><div class="container-wide">
+{block:AppsI18n}
+<div id="language" class="mart15 marb10 clearfix">
+{AppsI18nTag}
+</div>
+{/block:AppsI18n}
+<div class="footer-link-text mart10 clearfix"><i class="fa fa-copyright"></i> {ShopName} | <a href="{PrivacyPageURL}">{lang:Privacy}</a> | <a href="{LawPageURL}">{lang:Law}</a></div>
+</div></div>
+</section>
+</footer>
+<!-- フッター -->
+
+</div>
+
+<!-- MORE -->
+{block:IndexPage}
+<script type="text/javascript">
+			var process_flg = false;
+			var end_flg = false;	
+			var v_max_page = $("#max_page").text();
+			if (v_max_page == 1) {
+				$('#more').css('display', 'none');
+			}
+			$('#more a').on('click' , function(e){
+    		e.preventDefault(); 
+				if (process_flg == false && end_flg == false) {
+					var max_page = $("#max_page").text();
+					var next_page = $('#next_page').text();
+					if (eval(max_page) >= eval(next_page)) {
+						$.ajax({
+							url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+							dataType: 'html',
+							beforeSend: function () {
+								process_flg = true;
+								$('#loading').css('display', 'block');
+							},
+							success: function (data) {
+								$('#products').append(data);
+								next_page = eval(next_page) + 1;
+								$('#next_page').text(next_page);
+								//商品価格に<wbr>追加
+								$('.item .price').each(function(){
+    							var txt = $(this).html();
+								if ( txt.indexOf('wbr') == -1) {
+									$(this).html(txt.replace('\(','\<wbr\>\('));
+								}
+  								});
+							},
+							complete: function () {
+								process_flg = false;
+								$('#loading').css('display', 'none');
+								if (eval(max_page) < eval(next_page)) {
+								$('#more').css('display', 'none');
+								}						
+							}
+						});
+					} else {
+						end_flg = true;
+					}
+				}
+			});
+			
+//一覧ページ　.item .priceの海外通貨の前に改行候補
+$(function() {
+  $('.item .price').each(function(){
+    var txt = $(this).html();
+	$(this).html(txt.replace('\(','\<wbr\>\('));
+  });
+});
+
+// add history
+$(function() {
+	$('body').on('click', 'a', function(e) {
+		var href = window.location.href;
+		var url = $('#base_url').val();
+		if (url.substring(url.length - 1) != '/') {
+			url = url + '/';
+		}
+		var categoryStr = href.match(/categories\/.+/);
+		if (categoryStr != null) {
+			var re = /([0-9]+\/)([0-9]+)$/;
+			categoryStr = categoryStr[0].replace(re, "$1");
+			if (categoryStr.substring(categoryStr.length - 1) != '/') {
+				categoryStr = categoryStr + '/';
+			}
+		} else {
+			categoryStr = "";
+		}
+		var next_page = $('#next_page').text() - 1;
+		if (next_page > 1 && href.match(/\/search\?q/) == null) {
+			window.history.pushState(null, null, url + categoryStr + next_page);
+		}
+	});
+});
+</script>
+{/block:IndexPage}
+<!-- MORE -->
+
+<!-- maincontainer --></div>
+{/block:ShopPublic}
+
+<div id="page-top"><a class="btn-floating"><i class="fa fa-caret-up blue-grey-text text-darken-2"></i></a></div>
+
+<script type='text/javascript' src='https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645ba2ae93a/materialize.min.js'></script>
+<script src="https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645bac68f34/ofi.min.js"></script>
+<script type='text/javascript' src='https://basefile.akamaized.net/dolcevivace-shopselect-net/5a645bc568b3b/vivace.js'></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://basefile.s3.amazonaws.com/dolcevivace-shopselect-net/5791a361b39b6/html5shiv.js"></script>
+<script type="text/javascript" src="https://basefile.s3.amazonaws.com/dolcevivace-shopselect-net/5791a36dda405/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//html.loading-delay
+setTimeout(function() {
+    if (document.getElementsByTagName("html")[0].classList.contains('wf-active') != true) {
+        document.getElementsByTagName("html")[0].classList.add('loading-delay');
+    }
+}, 2000);
+</script>
+
+{GoogleAnalyticsTag}
+
+<input id="base_url" type="hidden" value="{ShopURL}">
+
 </body>
 </html>
+{/block:NotLoadItemsPage}
+{block:LoadItemsPage}
+{block:Items}
+<!-- item -->
+<div class="flex-cell-col2">
+<div class="item">
+{block:AppsItemLabel}
+<div class="index-label">
+{AppsItemLabelTag}
+</div>
+{/block:AppsItemLabel}
+<div class="row index-block">
+<div class="top-thumb">
+<a href="{ItemPageURL}">
+{block:ItemImage1}
+<img src="{ItemImage1URL-640}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:ItemImage1}
+{block:NoItemImage1}
+<img src="{ItemNoImageURL}" alt="{ItemTitle}" title="{ItemTitle}">
+{/block:NoItemImage1}
+<div class="index-title-box">
+<div class="wish-title">
+{ItemTitle}</div>
+
+{block:ItemNowOnSale}
+{block:if-DolceThumDesc}
+
+{block:ItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{block:HasItemStock}
+{block:ItemNowOnSale}
+<span class="dolce-preorder">[{lang:PreOrderItem}]</span>
+{/block:ItemNowOnSale}
+{/block:HasItemStock}
+<span class="dolce-preorder-detail">{ItemDetailNoBr}</span>
+</div>
+{/block:ItemPreOrder}
+
+{block:NotItemPreOrder}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:NotItemPreOrder}
+
+{/block:if-DolceThumDesc}
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="desc text-s">
+<span class="dolce-comingsoon">COMING SOON</span>
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+{block:if-DolceThumDesc}
+<div class="desc grey-text text-lighten-1 text-s">
+{ItemDetailNoBr}
+</div>
+{/block:if-DolceThumDesc}
+{/block:ItemEndOfSale}
+
+{block:HasItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:HasItemStock}
+
+{block:NoItemStock}
+
+{block:ItemNowOnSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemNowOnSale}
+
+{block:ItemWatingForSale}
+<div class="price">
+{block:NoItemProperPrice}
+<span class="normal-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+{/block:NoItemProperPrice}
+{block:HasItemProperPrice}
+<span class="sale-rate">{ItemDiscountRate}</span>
+<span class="invisible">.</span>
+<span class="sale-price">{ItemPrice}</span>
+{/block:HasItemProperPrice}
+</div>
+{/block:ItemWatingForSale}
+
+{block:ItemEndOfSale}
+<div class="price">
+<span class="soldout-price">{ItemPrice}</span>
+<span class="invisible">.</span>
+<span class="soldout">SOLD OUT</span>
+</div>
+{/block:ItemEndOfSale}
+
+{/block:NoItemStock}
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- item -->
+{/block:Items}
+{/block:LoadItemsPage}
